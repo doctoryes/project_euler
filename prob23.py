@@ -16,5 +16,11 @@
 from common.math_util import is_abundant
 
 abundants = [x for x in xrange(12, 28123) if is_abundant(x)]
-print abundants
-#for x in xrange(12, 28123):
+# print abundants
+possible_numbers = range(1, 28123)
+for a1 in abundants:
+    for a2 in abundants:
+        a_sum = a1 + a2
+        if a_sum in possible_numbers:
+            possible_numbers.remove(a_sum)
+print "Solution: {}".format(sum(possible_numbers))
